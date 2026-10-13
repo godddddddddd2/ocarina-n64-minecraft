@@ -32,7 +32,7 @@ The patch disables MSVC interprocedural optimization and repeated metadata copyi
 
 ## Assemble a private runtime
 
-Create a new directory for the runtime. Copy your locally built soh.exe and soh.o2r there from Shipwright/x64/Release. Copy the prepared assets directory from that build output into the runtime as assets. Preserve the generated metadata layout. These files stay on your computer.
+Create a new directory for the runtime. Copy your locally built soh.exe and soh.o2r there from Shipwright/x64/Release. Copy the contents of Shipwright/soh/assets/yml into a directory named assets inside the runtime. This supplies the metadata that the patched build no longer copies automatically. These files stay on your computer.
 
 Run the locally built build/Release/soh-torch.exe to extract your own supported ROM:
 
