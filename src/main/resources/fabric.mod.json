@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "ocarina",
+  "version": "0.5.4-preview",
+  "name": "Ocarina N64 in Minecraft",
+  "description": "ROM scene exploration, Link rendering and native combat bridge. Full story runtime integration in development.",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "dev.ocarina.OcarinaClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  },
+  "mixins": [
+    "ocarina.mixins.json"
+  ],
+  "license": "AGPL-3.0-or-later",
+  "contact": {
+    "homepage": "https://github.com/godddddddddd2/ocarina-n64-minecraft",
+    "sources": "https://github.com/godddddddddd2/ocarina-n64-minecraft",
+    "issues": "https://github.com/godddddddddd2/ocarina-n64-minecraft/issues"
+  }
+}

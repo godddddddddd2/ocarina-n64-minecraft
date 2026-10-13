@@ -1,0 +1,60 @@
+{
+  "libultraship/include/fast/interpreter.h": [
+    [
+      "    float x, y, z, w;",
+      "    float x, y, z, w;\n    float ootWorld[4];"
+    ]
+  ],
+  "libultraship/src/fast/interpreter.cpp": [
+    [
+      "        float world_pos[3] = { 0.0 };",
+      "        float(*ootModel)[4]=mRsp->modelview_matrix_stack[mRsp->modelview_matrix_stack_size-1];\n        for(int axis=0;axis<4;axis++)d->ootWorld[axis]=v->ob[0]*ootModel[0][axis]+v->ob[1]*ootModel[1][axis]+v->ob[2]*ootModel[2][axis]+ootModel[3][axis];\n        float world_pos[3] = { 0.0 };"
+    ],
+    [
+      "    if(OotStory::Enabled()) {\n        bool world=",
+      "    bool ootAreaWorld=false;\n    if(OotStory::Enabled()) {\n        bool world="
+    ],
+    [
+      "        float aspect=AdjXForAspectRatio(1.0f);",
+      "        ootAreaWorld=world;\n        float aspect=AdjXForAspectRatio(1.0f);"
+    ],
+    [
+      "    if (v1->clip_rej & v2->clip_rej & v3->clip_rej) {",
+      "    if (!ootAreaWorld && (v1->clip_rej & v2->clip_rej & v3->clip_rej)) {"
+    ],
+    [
+      "    if ((mRsp->geometry_mode & cull_both) != 0) {",
+      "    if(OotStory::Enabled()){\n        uint32_t mode=mRsp->geometry_mode&cull_both;\n        uint32_t flags=ootAreaWorld?((mode&cull_back?32u:0u)|(mode&cull_front?64u:0u)):0u;\n        if(mRsp->extra_geometry_mode&G_EX_INVERT_CULLING)flags=((flags&32)<<1)|((flags&64)>>1);\n        if(flags!=OotStory::CullFlags()){Flush();OotStory::Culling(flags);}\n    }\n    if (!ootAreaWorld && (mRsp->geometry_mode & cull_both) != 0) {"
+    ],
+    [
+      "    struct GfxClipParameters clip_parameters = mRapi->GetClipParameters();",
+      "    OotStory::TriangleWorld(v1->ootWorld,v2->ootWorld,v3->ootWorld);\n    struct GfxClipParameters clip_parameters = mRapi->GetClipParameters();"
+    ]
+  ],
+  "libultraship/src/fast/backends/gfx_opengl.cpp": [
+    [
+      "    glDrawArrays(GL_TRIANGLES, 0, 3 * buf_vbo_num_tris);",
+      "    uint32_t ootCull=OotStory::CullFlags();\n    if(ootCull){glEnable(GL_CULL_FACE);glFrontFace(mFrameBuffers[mCurrentFrameBuffer].invertY?GL_CW:GL_CCW);glCullFace(ootCull==96?GL_FRONT_AND_BACK:ootCull==64?GL_FRONT:GL_BACK);}else glDisable(GL_CULL_FACE);\n    glDrawArrays(GL_TRIANGLES, 0, 3 * buf_vbo_num_tris);"
+    ]
+  ],
+  "soh/soh/OTRGlobals.cpp": [
+    [
+      "extern \"C\" void OotStory_CameraOverride(View* view) {",
+      "extern \"C\" int OotStory_WholeRoom(void){return OotStory::WorldMode()?1:0;}\nextern \"C\" void OotStory_CameraOverride(View* view) {"
+    ]
+  ],
+  "soh/src/code/z_room.c": [
+    [
+      "#include \"global.h\"",
+      "#include \"global.h\"\nextern int OotStory_WholeRoom(void);"
+    ],
+    [
+      "        if (-(f32)polygonDlist->unk_06 < sp84.z) {",
+      "        if (OotStory_WholeRoom() || -(f32)polygonDlist->unk_06 < sp84.z) {"
+    ],
+    [
+      "            if (temp_f2 < play->lightCtx.fogFar) {",
+      "            if (OotStory_WholeRoom() || temp_f2 < play->lightCtx.fogFar) {"
+    ]
+  ]
+}

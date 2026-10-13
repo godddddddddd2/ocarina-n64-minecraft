@@ -1,0 +1,17 @@
+{
+  "key.category.ocarina.controls": "Ocarina of Time",
+  "key.ocarina.toggle": "Switch Link / Minecraft",
+  "key.ocarina.sword": "Link: Sword",
+  "key.ocarina.shield": "Link: Shield",
+  "key.ocarina.target": "Link: Target",
+  "key.category.ocarina.story_controls": "Ocarina — Original story",
+  "key.ocarina.action": "Story: A / Action",
+  "key.ocarina.story_sword": "Story: B / Sword",
+  "key.ocarina.story_shield": "Story: R / Shield",
+  "key.ocarina.story_target": "Story: Z / Target",
+  "key.ocarina.story_start": "Story: Start / Pause",
+  "key.ocarina.c_up": "Story: C Up",
+  "key.ocarina.c_down": "Story: C Down",
+  "key.ocarina.c_left": "Story: C Left",
+  "key.ocarina.c_right": "Story: C Right"
+}

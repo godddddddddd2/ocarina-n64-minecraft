@@ -1,0 +1,24 @@
+{
+  "libultraship/src/fast/interpreter.cpp": [
+    [
+      "    mRapi->StartFrame();",
+      "    OotStory::MainFramebuffer(mRendersToFb ? mGameFb : 0);\n    mRapi->StartFrame();"
+    ]
+  ],
+  "soh/soh/OTRGlobals.cpp": [
+    [
+      "s[0]=gPlayState?1.0f:0.0f;",
+      "s[0]=(gPlayState&&gSaveContext.gameMode==GAMEMODE_NORMAL)?1.0f:0.0f;"
+    ],
+    [
+      "if(!gPlayState||view!=&gPlayState->view||gPlayState->pauseCtx.state!=0)return;",
+      "if(!gPlayState||gSaveContext.gameMode!=GAMEMODE_NORMAL||view!=&gPlayState->view||gPlayState->pauseCtx.state!=0)return;"
+    ]
+  ],
+  "libultraship/src/fast/backends/gfx_opengl.cpp": [
+    [
+      "    SelectTexture(tile, texId);\n}",
+      "    SelectTexture(tile, texId);\n    if(OotStory::Enabled()){\n        const auto& fb=mFrameBuffers[fb_id];\n        if(fb.width>0&&fb.height>0&&fb.width<=4096&&fb.height<=4096&&fb.msaa_level<=1){\n            GLint packBuffer,alignment,rowLength,skipRows,skipPixels;\n            glGetIntegerv(GL_PIXEL_PACK_BUFFER_BINDING,&packBuffer);glGetIntegerv(GL_PACK_ALIGNMENT,&alignment);\n            glGetIntegerv(GL_PACK_ROW_LENGTH,&rowLength);glGetIntegerv(GL_PACK_SKIP_ROWS,&skipRows);glGetIntegerv(GL_PACK_SKIP_PIXELS,&skipPixels);\n            glBindBuffer(GL_PIXEL_PACK_BUFFER,0);glPixelStorei(GL_PACK_ALIGNMENT,1);glPixelStorei(GL_PACK_ROW_LENGTH,0);glPixelStorei(GL_PACK_SKIP_ROWS,0);glPixelStorei(GL_PACK_SKIP_PIXELS,0);\n            std::vector<uint8_t> pixels(static_cast<size_t>(fb.width)*fb.height*4);\n            glGetTexImage(GL_TEXTURE_2D,0,GL_RGBA,GL_UNSIGNED_BYTE,pixels.data());\n            glBindBuffer(GL_PIXEL_PACK_BUFFER,packBuffer);glPixelStorei(GL_PACK_ALIGNMENT,alignment);glPixelStorei(GL_PACK_ROW_LENGTH,rowLength);glPixelStorei(GL_PACK_SKIP_ROWS,skipRows);glPixelStorei(GL_PACK_SKIP_PIXELS,skipPixels);\n            OotStory::Texture(texId,pixels.data(),fb.width,fb.height);OotStory::Sampler(texId,2,2,true);\n        }\n    }\n}"
+    ]
+  ]
+}

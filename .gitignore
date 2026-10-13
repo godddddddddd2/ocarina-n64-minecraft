@@ -1,0 +1,12 @@
+.gradle/
+build/
+run/
+evidence/
+*.n64
+*.z64
+*.v64
+*.o2r
+*.otr
+Save/
+saves/
+.env*

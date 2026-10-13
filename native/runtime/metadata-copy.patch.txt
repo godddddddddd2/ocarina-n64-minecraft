@@ -1,0 +1,1 @@
+Local Shipwright soh/CMakeLists.txt wraps post-build extractor metadata copies in SOH_COPY_EXTRACTOR_METADATA (default OFF). The private runtime/assets junction points to the already prepared metadata. This avoids traversing tens of thousands of unchanged YAML files for every adapter rebuild.

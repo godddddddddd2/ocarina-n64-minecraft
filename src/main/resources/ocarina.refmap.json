@@ -1,0 +1,16 @@
+{
+  "mappings": {
+    "dev/ocarina/mixin/StoryProjectionMixin": {
+      "renderLevel": "Lnet/minecraft/class_757;method_3188(Lnet/minecraft/class_9779;)V",
+      "Lnet/minecraft/client/renderer/PerspectiveProjectionMatrixBuffer;getBuffer(Lorg/joml/Matrix4f;)Lcom/mojang/blaze3d/buffers/GpuBufferSlice;": "Lnet/minecraft/class_11286;method_71123(Lorg/joml/Matrix4f;)Lcom/mojang/blaze3d/buffers/GpuBufferSlice;"
+    }
+  },
+  "data": {
+    "named:intermediary": {
+      "dev/ocarina/mixin/StoryProjectionMixin": {
+        "renderLevel": "Lnet/minecraft/class_757;method_3188(Lnet/minecraft/class_9779;)V",
+        "Lnet/minecraft/client/renderer/PerspectiveProjectionMatrixBuffer;getBuffer(Lorg/joml/Matrix4f;)Lcom/mojang/blaze3d/buffers/GpuBufferSlice;": "Lnet/minecraft/class_11286;method_71123(Lorg/joml/Matrix4f;)Lcom/mojang/blaze3d/buffers/GpuBufferSlice;"
+      }
+    }
+  }
+}

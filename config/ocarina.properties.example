@@ -1,0 +1,6 @@
+# Copy to your Minecraft instance's config/ocarina.properties.
+# Replace the example paths. Use forward slashes, including on Windows.
+rom=D:/Games/My-ROMs/oot-usa-revb.n64
+nativeDirectory=D:/Minecraft/Ocarina/ocarina-native
+# Optional, only after building the patched story engine and extracting your ROM:
+# storyRuntimeDirectory=D:/Games/Ocarina-Story-Runtime

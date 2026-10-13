@@ -1,0 +1,62 @@
+{
+  "libultraship/src/fast/interpreter.cpp": [
+    [
+      "#include <math.h>",
+      "#include <math.h>\n#include <cmath>\n#include \"fast/StoryBridge.h\""
+    ],
+    [
+      "    // if (rand()%2) return;",
+      "    if(OotStory::Enabled()) {\n        bool world=OotStory::WorldMode()&&!is_rect&&(std::abs(mRsp->P_matrix[0][3])+std::abs(mRsp->P_matrix[1][3])+std::abs(mRsp->P_matrix[2][3])>0.00001f);\n        float aspect=AdjXForAspectRatio(1.0f);\n        if(OotStory::ProjectionChanged(&mRsp->P_matrix[0][0],aspect,world)){Flush();OotStory::Projection(&mRsp->P_matrix[0][0],aspect,world);}\n    }\n    // if (rand()%2) return;"
+    ]
+  ],
+  "soh/src/code/z_view.c": [
+    [
+      "s32 func_800AAA9C(View* view) {",
+      "extern void OotStory_CameraOverride(View* view);\ns32 func_800AAA9C(View* view) {\n    OotStory_CameraOverride(view);"
+    ]
+  ],
+  "soh/soh/OTRGlobals.cpp": [
+    [
+      "extern \"C\" int OotStory_WaitForHost(void)",
+      "extern \"C\" void OotStory_CameraOverride(View* view) {\n    if(!gPlayState||view!=&gPlayState->view||gPlayState->pauseCtx.state!=0)return;\n    float c[10];if(!OotStory::Camera(c))return;\n    view->eye={c[0],c[1],c[2]};view->lookAt={c[3],c[4],c[5]};view->up={c[6],c[7],c[8]};view->fovy=c[9];\n}\nextern \"C\" int OotStory_WaitForHost(void)"
+    ],
+    [
+      "s[7]=gPlayState->view.fovy;",
+      "s[7]=gPlayState->view.fovy;\n            s[37]=static_cast<float>(gPlayState->pauseCtx.state);\n            s[38]=gPlayState->roomCtx.curRoom.meshHeader?static_cast<float>(gPlayState->roomCtx.curRoom.meshHeader->base.type):0.0f;"
+    ],
+    [
+      "        OotStory::State(s,48);",
+      "        s[47]=2.0f;\n        OotStory::State(s,48);"
+    ],
+    [
+      "s[47]=2.0f;",
+      "if(gPlayState)s[39]=static_cast<float>(Camera_GetInputDirYaw(GET_ACTIVE_CAM(gPlayState)));\n        s[47]=2.0f;"
+    ],
+    [
+      "extern \"C\" void OotStory_CameraOverride(View* view) {",
+      "#include \"StoryCollision.inc\"\nextern \"C\" void OotStory_CameraOverride(View* view) {"
+    ],
+    [
+      "        s[47]=2.0f;",
+      "        s[40]=static_cast<float>(ootHostEpoch);s[41]=static_cast<float>(ootHostCount);s[42]=static_cast<float>(ootHostRequested);s[46]=1.0f;\n        s[47]=2.0f;"
+    ]
+  ],
+  "soh/src/code/z_bgcheck.c": [
+    [
+      "#include \"global.h\"",
+      "#include \"global.h\"\nextern void OotStory_ReserveCollision(CollisionContext* context);\nextern void OotStory_ResetCollision(void);\nextern void OotStory_UpdateCollision(PlayState* play,DynaCollisionContext* dyna);"
+    ],
+    [
+      "    colCtx->dyna.vtxListMax *= 2;",
+      "    colCtx->dyna.vtxListMax *= 2;\n    OotStory_ReserveCollision(colCtx);"
+    ],
+    [
+      "void DynaPoly_Alloc(PlayState* play, DynaCollisionContext* dyna) {",
+      "void DynaPoly_Alloc(PlayState* play, DynaCollisionContext* dyna) {\n    OotStory_ResetCollision();"
+    ],
+    [
+      "    DynaSSNodeList_ResetCount(&dyna->polyNodes);",
+      "    OotStory_UpdateCollision(play,dyna);\n    DynaSSNodeList_ResetCount(&dyna->polyNodes);"
+    ]
+  ]
+}

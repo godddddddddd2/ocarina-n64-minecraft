@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.ocarina.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "refmap": "ocarina.refmap.json",
+  "client": [
+    "StoryProjectionMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
